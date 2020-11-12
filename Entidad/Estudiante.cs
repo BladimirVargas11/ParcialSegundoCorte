@@ -2,7 +2,7 @@
 
 namespace Entidad
 {
-    public class Class1
+    public class Estudiante
     {
     }
 }

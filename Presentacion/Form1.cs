@@ -16,5 +16,21 @@ namespace Presentacion
         {
             InitializeComponent();
         }
+        //731;548
+        private void BotonRegistrarVotos_Click(object sender, EventArgs e)
+        {
+
+        }
+        public void AbrirContenido(object ventana)
+        {
+            if (PanelMostrar.Controls.Count > 0) PanelMostrar.Controls.RemoveAt(0);
+
+            Form contenido = ventana as Form;
+            contenido.TopLevel = false;
+            contenido.Dock = DockStyle.Fill;
+            this.PanelMostrar.Controls.Add(contenido);
+            this.PanelMostrar.Tag = contenido;
+            contenido.Show();
+        }
     }
 }
