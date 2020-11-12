@@ -22,6 +22,7 @@ namespace Logica
                 List<Estudiante> estudiantes = estudianteRepository.ConsultarTodos();
                 if (estudiantes != null)
                 {
+                    
                     return estudianteResponse = new ConsultaEstudianteResponse(estudiantes);
                 }
                 else
@@ -35,6 +36,38 @@ namespace Logica
 
                 return estudianteResponse = new ConsultaEstudianteResponse("Error de Aplicacion: " + e.Message);
             }
+        }
+
+        public ConsultaEstudianteResponse ConsultarPorCategoria(string categoria)
+        {
+
+            try
+            {
+                List<Estudiante> estudiantes = estudianteRepository.consultarPorCategoria(categoria);
+                if (estudiantes != null) { 
+                   
+                    return new ConsultaEstudianteResponse(estudiantes);
+                }
+                else
+                {
+                    return new ConsultaEstudianteResponse("No existe aún ninguna persona en este grupo");
+                }
+
+            }
+            catch (Exception e)
+            {
+
+                return new ConsultaEstudianteResponse("Error de Aplicacion: " + e.Message);
+            }
+        }
+
+        public Array Datos()
+        {
+
+            return estudianteRepository.Estadisticas();
+                
+        }
+
         }
 
 
@@ -70,9 +103,12 @@ public class ConsultaEstudianteResponse
         Estudiantes = estudiantes;
         EstudianteEncontrado = true;
     }
+
     public ConsultaEstudianteResponse(string message)
     {
         Message = message;
         EstudianteEncontrado = false;
     }
+
+
 }

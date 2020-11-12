@@ -24,11 +24,13 @@ namespace Presentacion
 
         private void BotonBuscar_Click(object sender, EventArgs e)
         {
-            var response = estudianteService.ConsultarTodos();
+            String categoria = MapearCombo();
+            var response = estudianteService.ConsultarPorCategoria(categoria);
             if (response.EstudianteEncontrado)
             {
 
                 TablaEstudiante.DataSource = response.Estudiantes;
+                
 
             }
             else
@@ -36,6 +38,32 @@ namespace Presentacion
                 MessageBox.Show(response.Message, "Informacion Consulta", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
+        }
+
+        public string MapearCombo() {
+            if (ComboBuscar.Text.Equals("VOTARON"))
+            {
+                return "SI";
+            }
+            else if (ComboBuscar.Text.Equals("NO VOTARON"))
+            {
+                return "NO";
+            }
+            else {
+                return "TODOS";
+            }
+        }
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BotonVer_Click(object sender, EventArgs e)
+        {
+            Array array = estudianteService.Datos();
+            LabelNoVotaron;
+            LabelVotaron;
+            LabelTotalVotaron;
         }
     }
 }

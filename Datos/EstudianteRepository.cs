@@ -7,16 +7,8 @@ namespace Datos
 {
     public class EstudianteRepository
     {
-        private readonly string FileName = "Estudiante.txt";
-        public void Guardar(Estudiante estudiante)
-        {
-            FileStream file = new FileStream(FileName, FileMode.Append);
-            StreamWriter writer = new StreamWriter(file);
-            writer.WriteLine($"{estudiante.Identificacion};{estudiante.Nombre}; ");
-            writer.Close();
-            file.Close();
+        private readonly string FileName = "Estudiantes.txt";
 
-        }
 
         public Estudiante Buscar(string identificacion)
         {
@@ -56,21 +48,46 @@ namespace Datos
         {
             Estudiante estudiante = new Estudiante();
             char delimiter = ';';
-            String Voto = "NO";
             string[] matrizEstudiante = linea.Split(delimiter);
             estudiante.Identificacion = matrizEstudiante[0];
             estudiante.Nombre = matrizEstudiante[1];
-            if (estudiante.Voto is null)
-            {
-                estudiante.Voto = Voto;
-                estudiante.Voto = matrizEstudiante[3];
-            }
-            else {
-                estudiante.Voto = matrizEstudiante[3];
-            }
-
+            estudiante.Voto = matrizEstudiante[2];
             return estudiante;
         }
+
+        public List<Estudiante> consultarPorCategoria(String categoria)
+        {
+            categoria = categoria.ToUpper();
+            if (categoria.Equals("Todos"))
+            {
+                return ConsultarTodos();
+            }
+            else
+            {
+                return ConsultarVoto(categoria);
+            }
+
+
+
+        }
+
+        private List<Estudiante> ConsultarVoto(String categoria)
+        {
+            return ConsultarTodos().Where(p => p.Voto.Equals(categoria)).ToList();
+        }
+
+        public Array Estadisticas() {
+
+
+            return  new int[] { ConsultarTodos().Count, 
+                ConsultarTodos().Count(p => p.Voto.Equals("NO")),
+                ConsultarTodos().Count(p => p.Voto.Equals("SI"))
+                };
+
+
+
+        }
+
 
     }
 }
