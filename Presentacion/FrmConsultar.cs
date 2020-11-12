@@ -60,10 +60,10 @@ namespace Presentacion
 
         private void BotonVer_Click(object sender, EventArgs e)
         {
-            Array array = estudianteService.Datos();
-            LabelNoVotaron;
-            LabelVotaron;
-            LabelTotalVotaron;
+            Array[] array = (Array[])estudianteService.Datos();
+
+            
+
         }
     }
 }
