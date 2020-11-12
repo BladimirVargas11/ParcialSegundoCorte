@@ -58,12 +58,13 @@ namespace Datos
         public List<Estudiante> consultarPorCategoria(String categoria)
         {
             categoria = categoria.ToUpper();
-            if (categoria.Equals("Todos"))
+            if (categoria.Equals("TODOS"))
             {
                 return ConsultarTodos();
             }
             else
             {
+                
                 return ConsultarVoto(categoria);
             }
 
