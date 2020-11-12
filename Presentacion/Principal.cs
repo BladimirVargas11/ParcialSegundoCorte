@@ -37,5 +37,10 @@ namespace Presentacion
         {
             AbrirContenido(new FrmConsultar());
         }
+
+        private void BotonRegistrarCandidato_Click(object sender, EventArgs e)
+        {
+            AbrirContenido(new FrmRegistrarCandidato());
+        }
     }
 }

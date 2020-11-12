@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Entidad
 {
-    class Candidato
+    public class Candidato
     {
         public string Tarjeton { get; set; }
         public string Nombre { get; set; }

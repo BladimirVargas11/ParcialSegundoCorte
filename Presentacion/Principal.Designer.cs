@@ -78,6 +78,7 @@
             this.BotonRegistrarCandidato.TabIndex = 1;
             this.BotonRegistrarCandidato.Text = "Registrar Candidato";
             this.BotonRegistrarCandidato.UseVisualStyleBackColor = true;
+            this.BotonRegistrarCandidato.Click += new System.EventHandler(this.BotonRegistrarCandidato_Click);
             // 
             // menu
             // 
