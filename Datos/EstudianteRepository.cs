@@ -76,17 +76,7 @@ namespace Datos
             return ConsultarTodos().Where(p => p.Voto.Equals(categoria)).ToList();
         }
 
-        public Array Estadisticas() {
-
-
-            return  new int[] { ConsultarTodos().Count, 
-                ConsultarTodos().Count(p => p.Voto.Equals("NO")),
-                ConsultarTodos().Count(p => p.Voto.Equals("SI"))
-                };
-
-
-
-        }
+ 
 
 
     }

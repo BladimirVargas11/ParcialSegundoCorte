@@ -58,12 +58,6 @@ namespace Presentacion
 
         }
 
-        private void BotonVer_Click(object sender, EventArgs e)
-        {
-            Array[] array = (Array[])estudianteService.Datos();
 
-            
-
-        }
     }
 }

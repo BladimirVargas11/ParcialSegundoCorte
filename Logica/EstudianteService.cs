@@ -61,14 +61,31 @@ namespace Logica
             }
         }
 
-        public Array Datos()
+        public EstudianteResponse BuscarPorTarjeton(string identificacion)
         {
+            EstudianteResponse estudianteResponse;
+            try
+            {
+                Estudiante estudiante = estudianteRepository.Buscar(identificacion);
+                if (estudiante != null)
+                {
+                    return estudianteResponse = new EstudianteResponse(estudiante);
+                }
+                else
+                {
+                    return estudianteResponse = new EstudianteResponse("La Persona buscada no se encuentra Registrada");
+                }
 
-            return estudianteRepository.Estadisticas();
-                
+            }
+            catch (Exception e)
+            {
+
+                return estudianteResponse = new EstudianteResponse("Error de Aplicacion: " + e.Message);
+            }
+
         }
 
-        
+
 
 
     }

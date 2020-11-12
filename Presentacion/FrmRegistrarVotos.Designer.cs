@@ -32,15 +32,15 @@
             this.TextBuscarId = new System.Windows.Forms.TextBox();
             this.BotonBuscar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.ComboCandidato = new System.Windows.Forms.ComboBox();
             this.BotonLimpiar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.Votacion = new System.Windows.Forms.GroupBox();
-            this.BotonVotar = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.TextoNombre = new System.Windows.Forms.TextBox();
+            this.Votacion = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.TextoNombreCandidato = new System.Windows.Forms.TextBox();
+            this.BotonVotar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.Votacion.SuspendLayout();
             this.SuspendLayout();
@@ -73,6 +73,7 @@
             this.BotonBuscar.TabIndex = 3;
             this.BotonBuscar.Text = "Buscar";
             this.BotonBuscar.UseVisualStyleBackColor = true;
+            this.BotonBuscar.Click += new System.EventHandler(this.BotonBuscar_Click);
             // 
             // label3
             // 
@@ -85,15 +86,15 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Candidato a Votar:";
             // 
-            // comboBox1
+            // ComboCandidato
             // 
-            this.comboBox1.Enabled = false;
-            this.comboBox1.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(201, 45);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(126, 29);
-            this.comboBox1.TabIndex = 6;
+            this.ComboCandidato.Enabled = false;
+            this.ComboCandidato.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ComboCandidato.FormattingEnabled = true;
+            this.ComboCandidato.Location = new System.Drawing.Point(201, 45);
+            this.ComboCandidato.Name = "ComboCandidato";
+            this.ComboCandidato.Size = new System.Drawing.Size(126, 29);
+            this.ComboCandidato.TabIndex = 6;
             // 
             // BotonLimpiar
             // 
@@ -110,7 +111,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.BotonLimpiar);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.TextoNombre);
             this.groupBox1.Controls.Add(this.TextBuscarId);
             this.groupBox1.Controls.Add(this.BotonBuscar);
             this.groupBox1.ForeColor = System.Drawing.Color.WhiteSmoke;
@@ -120,41 +121,6 @@
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Estudiante";
-            // 
-            // Votacion
-            // 
-            this.Votacion.Controls.Add(this.label4);
-            this.Votacion.Controls.Add(this.textBox2);
-            this.Votacion.Controls.Add(this.BotonVotar);
-            this.Votacion.Controls.Add(this.label3);
-            this.Votacion.Controls.Add(this.comboBox1);
-            this.Votacion.ForeColor = System.Drawing.Color.Gainsboro;
-            this.Votacion.Location = new System.Drawing.Point(46, 253);
-            this.Votacion.Name = "Votacion";
-            this.Votacion.Size = new System.Drawing.Size(584, 144);
-            this.Votacion.TabIndex = 9;
-            this.Votacion.TabStop = false;
-            this.Votacion.Text = "Votar";
-            // 
-            // BotonVotar
-            // 
-            this.BotonVotar.Enabled = false;
-            this.BotonVotar.ForeColor = System.Drawing.Color.Black;
-            this.BotonVotar.Location = new System.Drawing.Point(460, 98);
-            this.BotonVotar.Name = "BotonVotar";
-            this.BotonVotar.Size = new System.Drawing.Size(85, 29);
-            this.BotonVotar.TabIndex = 8;
-            this.BotonVotar.Text = "Votar";
-            this.BotonVotar.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(201, 94);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(126, 29);
-            this.textBox1.TabIndex = 5;
             // 
             // label2
             // 
@@ -167,6 +133,30 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Nombre Del Votante:";
             // 
+            // TextoNombre
+            // 
+            this.TextoNombre.Enabled = false;
+            this.TextoNombre.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextoNombre.Location = new System.Drawing.Point(201, 94);
+            this.TextoNombre.Name = "TextoNombre";
+            this.TextoNombre.Size = new System.Drawing.Size(126, 29);
+            this.TextoNombre.TabIndex = 5;
+            // 
+            // Votacion
+            // 
+            this.Votacion.Controls.Add(this.label4);
+            this.Votacion.Controls.Add(this.TextoNombreCandidato);
+            this.Votacion.Controls.Add(this.BotonVotar);
+            this.Votacion.Controls.Add(this.label3);
+            this.Votacion.Controls.Add(this.ComboCandidato);
+            this.Votacion.ForeColor = System.Drawing.Color.Gainsboro;
+            this.Votacion.Location = new System.Drawing.Point(46, 253);
+            this.Votacion.Name = "Votacion";
+            this.Votacion.Size = new System.Drawing.Size(584, 144);
+            this.Votacion.TabIndex = 9;
+            this.Votacion.TabStop = false;
+            this.Votacion.Text = "Votar";
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -178,14 +168,25 @@
             this.label4.TabIndex = 9;
             this.label4.Text = "Nombre Del Candidato:";
             // 
-            // textBox2
+            // TextoNombreCandidato
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(201, 97);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(126, 29);
-            this.textBox2.TabIndex = 10;
+            this.TextoNombreCandidato.Enabled = false;
+            this.TextoNombreCandidato.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextoNombreCandidato.Location = new System.Drawing.Point(201, 97);
+            this.TextoNombreCandidato.Name = "TextoNombreCandidato";
+            this.TextoNombreCandidato.Size = new System.Drawing.Size(126, 29);
+            this.TextoNombreCandidato.TabIndex = 10;
+            // 
+            // BotonVotar
+            // 
+            this.BotonVotar.Enabled = false;
+            this.BotonVotar.ForeColor = System.Drawing.Color.Black;
+            this.BotonVotar.Location = new System.Drawing.Point(460, 98);
+            this.BotonVotar.Name = "BotonVotar";
+            this.BotonVotar.Size = new System.Drawing.Size(85, 29);
+            this.BotonVotar.TabIndex = 8;
+            this.BotonVotar.Text = "Votar";
+            this.BotonVotar.UseVisualStyleBackColor = true;
             // 
             // FrmRegistrarVotos
             // 
@@ -212,14 +213,14 @@
         private System.Windows.Forms.TextBox TextBuscarId;
         private System.Windows.Forms.Button BotonBuscar;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox ComboCandidato;
         private System.Windows.Forms.Button BotonLimpiar;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TextoNombre;
         private System.Windows.Forms.GroupBox Votacion;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox TextoNombreCandidato;
         private System.Windows.Forms.Button BotonVotar;
     }
 }

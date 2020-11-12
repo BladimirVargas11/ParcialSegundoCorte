@@ -35,6 +35,30 @@ namespace Logica
             }
         }
 
+        public CandidatoResponse BuscarPorTarjeton(string tarjeton)
+        {
+            CandidatoResponse candidatoResponse;
+            try
+            {
+                Candidato candidato = candidatoRepository.Buscar(tarjeton);
+                if (candidato != null)
+                {
+                    return candidatoResponse = new CandidatoResponse(candidato);
+                }
+                else
+                {
+                    return candidatoResponse = new CandidatoResponse("La Persona buscada no se encuentra Registrada");
+                }
+
+            }
+            catch (Exception e)
+            {
+
+                return candidatoResponse = new CandidatoResponse("Error de Aplicacion: " + e.Message);
+            }
+
+        }
+
 
 
     }
