@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace Presentacion
 {
-    public partial class Form1 : Form
+    public partial class Principal : Form
     {
-        public Form1()
+        public Principal()
         {
             InitializeComponent();
         }
-        //731;548
+        
         private void BotonRegistrarVotos_Click(object sender, EventArgs e)
         {
-
+            AbrirContenido(new FrmRegistrarVotos());
         }
         public void AbrirContenido(object ventana)
         {
@@ -31,6 +31,11 @@ namespace Presentacion
             this.PanelMostrar.Controls.Add(contenido);
             this.PanelMostrar.Tag = contenido;
             contenido.Show();
+        }
+
+        private void BotonConsultar_Click(object sender, EventArgs e)
+        {
+            AbrirContenido(new FrmConsultar());
         }
     }
 }
