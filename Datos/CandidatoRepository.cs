@@ -6,7 +6,7 @@ using Entidad;
 
 namespace Datos
 {
-    
+
     public class CandidatoRepository
     {
         private readonly string FileName = "Candidatos.txt";
@@ -83,4 +83,5 @@ namespace Datos
 
 
         }
+    }
 }
