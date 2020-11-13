@@ -59,6 +59,31 @@ namespace Logica
 
         }
 
+        public ConsultaCandidatoResponse ConsultarTodos()
+        {
+
+            ConsultaCandidatoResponse candidatoResponse;
+            try
+            {
+                List<Candidato> candidatos = candidatoRepository.ConsultarTodos();
+                if (candidatos != null)
+                {
+                    return candidatoResponse = new ConsultaCandidatoResponse(candidatos);
+                }
+                else
+                {
+                    return candidatoResponse = new ConsultaCandidatoResponse("La Persona buscada no se encuentra Registrada");
+                }
+
+            }
+            catch (Exception e)
+            {
+
+                return candidatoResponse = new ConsultaCandidatoResponse("Error de Aplicacion: " + e.Message);
+            }
+        }
+
+
 
 
     }

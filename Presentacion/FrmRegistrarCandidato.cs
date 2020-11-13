@@ -54,6 +54,7 @@ namespace Presentacion
 
         private bool ValidarTextosVacios()
         {
+            
             foreach (Control x in this.Controls)
             {
                 if (x is TextBox && x.Name != "txtPulsacion")
@@ -69,7 +70,7 @@ namespace Presentacion
 
         private Candidato MapearTextoACandidato()
         {
-            Candidato candidato = new Candidato(TextTarjeton.Text, TextNombre.Text, 0);
+            Candidato candidato = new Candidato(TextoTarjeton.Value+"", TextNombre.Text, 0);
             return candidato;
         }
 

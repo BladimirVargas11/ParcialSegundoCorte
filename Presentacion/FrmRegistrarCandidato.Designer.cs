@@ -31,10 +31,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.TextTarjeton = new System.Windows.Forms.TextBox();
             this.TextNombre = new System.Windows.Forms.TextBox();
             this.TextVotos = new System.Windows.Forms.TextBox();
             this.BotonAgregar = new System.Windows.Forms.Button();
+            this.TextoTarjeton = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.TextoTarjeton)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -70,14 +71,6 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "Votos:";
             // 
-            // TextTarjeton
-            // 
-            this.TextTarjeton.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextTarjeton.Location = new System.Drawing.Point(325, 181);
-            this.TextTarjeton.Name = "TextTarjeton";
-            this.TextTarjeton.Size = new System.Drawing.Size(126, 29);
-            this.TextTarjeton.TabIndex = 4;
-            // 
             // TextNombre
             // 
             this.TextNombre.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -107,22 +100,31 @@
             this.BotonAgregar.UseVisualStyleBackColor = true;
             this.BotonAgregar.Click += new System.EventHandler(this.BotonAgregar_Click);
             // 
+            // TextoTarjeton
+            // 
+            this.TextoTarjeton.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextoTarjeton.Location = new System.Drawing.Point(325, 189);
+            this.TextoTarjeton.Name = "TextoTarjeton";
+            this.TextoTarjeton.Size = new System.Drawing.Size(126, 29);
+            this.TextoTarjeton.TabIndex = 8;
+            // 
             // FrmRegistrarCandidato
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Indigo;
             this.ClientSize = new System.Drawing.Size(731, 548);
+            this.Controls.Add(this.TextoTarjeton);
             this.Controls.Add(this.BotonAgregar);
             this.Controls.Add(this.TextVotos);
             this.Controls.Add(this.TextNombre);
-            this.Controls.Add(this.TextTarjeton);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmRegistrarCandidato";
             this.Text = "FrmRegistrarCandidato";
+            ((System.ComponentModel.ISupportInitialize)(this.TextoTarjeton)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -133,9 +135,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox TextTarjeton;
         private System.Windows.Forms.TextBox TextNombre;
         private System.Windows.Forms.TextBox TextVotos;
         private System.Windows.Forms.Button BotonAgregar;
+        private System.Windows.Forms.NumericUpDown TextoTarjeton;
     }
 }

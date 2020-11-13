@@ -61,7 +61,7 @@ namespace Logica
             }
         }
 
-        public EstudianteResponse BuscarPorTarjeton(string identificacion)
+        public EstudianteResponse BuscarPorId(string identificacion)
         {
             EstudianteResponse estudianteResponse;
             try
@@ -85,6 +85,12 @@ namespace Logica
 
         }
 
+        public string Modificar(Estudiante estudiante)
+        {
+            estudianteRepository.Modificar(estudiante);
+         return ($"La persona con: {estudiante.Identificacion}, Ha votado satisfactoriamente ");
+
+        }
 
 
 

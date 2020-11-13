@@ -62,6 +62,25 @@ namespace Datos
             return candidato;
         }
 
+        public void Modificar(Candidato candidato)
+        {
+            List<Candidato> candidatos = new List<Candidato>();
+            candidatos = ConsultarTodos();
+            FileStream file = new FileStream(FileName, FileMode.Create);
+            file.Close();
+            foreach (var item in candidatos)
+            {
+                if (EsEncontrado(item.Tarjeton, candidato.Tarjeton))
+                {
+                    Guardar(candidato);
+                }
+                else
+                {
+                    Guardar(item);
+                }
 
-    }
+            }
+
+
+        }
 }

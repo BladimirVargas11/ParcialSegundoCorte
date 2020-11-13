@@ -38,8 +38,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.TextoNombre = new System.Windows.Forms.TextBox();
             this.Votacion = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.TextoNombreCandidato = new System.Windows.Forms.TextBox();
             this.BotonVotar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.Votacion.SuspendLayout();
@@ -105,6 +103,7 @@
             this.BotonLimpiar.TabIndex = 7;
             this.BotonLimpiar.Text = "Limpiar";
             this.BotonLimpiar.UseVisualStyleBackColor = true;
+            this.BotonLimpiar.Click += new System.EventHandler(this.BotonLimpiar_Click);
             // 
             // groupBox1
             // 
@@ -139,13 +138,11 @@
             this.TextoNombre.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TextoNombre.Location = new System.Drawing.Point(201, 94);
             this.TextoNombre.Name = "TextoNombre";
-            this.TextoNombre.Size = new System.Drawing.Size(126, 29);
+            this.TextoNombre.Size = new System.Drawing.Size(218, 29);
             this.TextoNombre.TabIndex = 5;
             // 
             // Votacion
             // 
-            this.Votacion.Controls.Add(this.label4);
-            this.Votacion.Controls.Add(this.TextoNombreCandidato);
             this.Votacion.Controls.Add(this.BotonVotar);
             this.Votacion.Controls.Add(this.label3);
             this.Votacion.Controls.Add(this.ComboCandidato);
@@ -157,26 +154,6 @@
             this.Votacion.TabStop = false;
             this.Votacion.Text = "Votar";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label4.Location = new System.Drawing.Point(17, 100);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(182, 21);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Nombre Del Candidato:";
-            // 
-            // TextoNombreCandidato
-            // 
-            this.TextoNombreCandidato.Enabled = false;
-            this.TextoNombreCandidato.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextoNombreCandidato.Location = new System.Drawing.Point(201, 97);
-            this.TextoNombreCandidato.Name = "TextoNombreCandidato";
-            this.TextoNombreCandidato.Size = new System.Drawing.Size(126, 29);
-            this.TextoNombreCandidato.TabIndex = 10;
-            // 
             // BotonVotar
             // 
             this.BotonVotar.Enabled = false;
@@ -187,6 +164,7 @@
             this.BotonVotar.TabIndex = 8;
             this.BotonVotar.Text = "Votar";
             this.BotonVotar.UseVisualStyleBackColor = true;
+            this.BotonVotar.Click += new System.EventHandler(this.BotonVotar_Click);
             // 
             // FrmRegistrarVotos
             // 
@@ -219,8 +197,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox TextoNombre;
         private System.Windows.Forms.GroupBox Votacion;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox TextoNombreCandidato;
         private System.Windows.Forms.Button BotonVotar;
     }
 }

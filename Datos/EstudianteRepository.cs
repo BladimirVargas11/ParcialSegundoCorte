@@ -9,7 +9,15 @@ namespace Datos
     {
         private readonly string FileName = "Estudiantes.txt";
 
+        public void Guardar(Estudiante estudiante)
+        {
+            FileStream file = new FileStream(FileName, FileMode.Append);
+            StreamWriter writer = new StreamWriter(file);
+            writer.WriteLine($"{estudiante.Identificacion};{estudiante.Nombre};{estudiante.Voto} ");
+            writer.Close();
+            file.Close();
 
+        }
         public Estudiante Buscar(string identificacion)
         {
             List<Estudiante> personas = ConsultarTodos();
@@ -77,7 +85,28 @@ namespace Datos
             return ConsultarTodos().Where(p => p.Voto.Equals(categoria)).ToList();
         }
 
- 
+        public void Modificar(Estudiante estudiante)
+        {
+            List<Estudiante> personas = new List<Estudiante>();
+            personas = ConsultarTodos();
+            FileStream file = new FileStream(FileName, FileMode.Create);
+            file.Close();
+            foreach (var item in personas)
+            {
+                if (EsEncontrado(item.Identificacion, estudiante.Identificacion))
+                {
+                    
+                }
+                else
+                {
+                    Guardar(item);
+                }
+
+            }
+
+        }
+
+
 
 
     }

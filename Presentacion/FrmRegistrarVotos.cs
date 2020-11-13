@@ -16,17 +16,19 @@ namespace Presentacion
     public partial class FrmRegistrarVotos : Form
     {
         private CandidatoService serviceCandidato;
+        private EstudianteService serviceEstudiante;
         public FrmRegistrarVotos()
         {
             InitializeComponent();
             serviceCandidato = new CandidatoService();
+            serviceEstudiante = new EstudianteService();
         }
 
         private void BotonBuscar_Click(object sender, EventArgs e)
         {
             if (TextoVacio())
             {
-                //ConsultarCandidato();
+                ConsultarEstudiante();
             }
             else
             {
@@ -51,25 +53,62 @@ namespace Presentacion
 
         }
 
-        private void ConsultarVotante()
+        private void ConsultarEstudiante()
         {
-            Candidato candidato = new Candidato();
-            serviceCandidato = new CandidatoService();
+            Estudiante estudiante = new Estudiante();
+            serviceEstudiante = new EstudianteService();
 
-            CandidatoResponse candidatoResponse = serviceCandidato.BuscarPorTarjeton(TextBuscarId.Text);
+            EstudianteResponse estudianteResponse = serviceEstudiante.BuscarPorId(TextBuscarId.Text);
 
-            if (candidatoResponse.CandidatoEncontrado == true)
+            if (estudianteResponse.EstudianteEncontrado == true)
             {
-                candidato = candidatoResponse.Candidato;
-                BotonVotar.Enabled = false;
-                ComboCandidato.Enabled = false;
-                
+
+                estudiante = estudianteResponse.Estudiante;
+                if (estudiante.Voto.Equals("SI"))
+                {
+                    MessageBox.Show("El Estudiante Ya ha votado...");
+
+                }
+                else {
+
+                    BotonVotar.Enabled = true;
+                    ComboCandidato.Enabled = true;
+                    TextoNombre.Text = estudiante.Nombre;
+                    PintarComboTarjetones();
+                }
+
+
 
             }
             else
             {
-                MessageBox.Show(candidatoResponse.Message);
+                MessageBox.Show(estudianteResponse.Message);
             }
+
+        }
+
+        private void PintarComboTarjetones() {
+
+            serviceCandidato = new CandidatoService();
+            var response = serviceCandidato.ConsultarTodos();
+            List<Candidato> candidatos = response.Candidatos;
+
+            foreach (var item in candidatos) 
+            {
+                ComboCandidato.Items.Add(item.Tarjeton);
+            
+            }
+
+
+        }
+
+        private void BotonLimpiar_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void BotonVotar_Click(object sender, EventArgs e)
+        {
 
         }
     }
