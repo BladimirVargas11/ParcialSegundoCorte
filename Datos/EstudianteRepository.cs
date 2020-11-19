@@ -43,7 +43,6 @@ namespace Datos
             string linea = string.Empty;
             while ((linea = reader.ReadLine()) != null)
             {
-
                 Estudiante estudiante = Map(linea);
                 estudiantes.Add(estudiante);
             }
@@ -70,22 +69,27 @@ namespace Datos
             {
                 return ConsultarTodos();
             }
-            else
+            else 
             {
-                
+
                 return ConsultarVoto(categoria);
             }
-
-
-
+           
         }
 
         private List<Estudiante> ConsultarVoto(String categoria)
         {
-            return ConsultarTodos().Where(p => p.Voto.Equals(categoria)).ToList();
+            return ConsultarTodos().Where(p => p.Voto.Trim().Equals(categoria)).ToList();
         }
 
-        public void Modificar(Estudiante estudiante)
+
+
+        public int ContarVotaron(string voto) {
+            
+            return ConsultarTodos().Where(p => p.Voto.Trim().Equals(voto)).Count();
+        }
+
+        public void Modificar(String identificacion,string voto)
         {
             List<Estudiante> personas = new List<Estudiante>();
             personas = ConsultarTodos();
@@ -93,12 +97,15 @@ namespace Datos
             file.Close();
             foreach (var item in personas)
             {
-                if (EsEncontrado(item.Identificacion, estudiante.Identificacion))
+                if (!EsEncontrado(item.Identificacion, identificacion))
                 {
-                    
+                    item.Identificacion = item.Identificacion.Trim();
+                    item.Voto = item.Voto.Trim();
+                    Guardar(item);
                 }
                 else
                 {
+                    item.Voto = voto.ToUpper().Trim();
                     Guardar(item);
                 }
 

@@ -85,14 +85,44 @@ namespace Logica
 
         }
 
-        public string Modificar(Estudiante estudiante)
-        {
-            estudianteRepository.Modificar(estudiante);
-         return ($"La persona con: {estudiante.Identificacion}, Ha votado satisfactoriamente ");
+
+        public bool Modificar(String identificacion, string voto) { 
+            try
+            {
+                if (estudianteRepository.Buscar(identificacion) != null)
+                {
+                    estudianteRepository.Modificar(identificacion, voto);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception e)
+            {
+
+                return false;
+            }
 
         }
 
+        public int ContarVoto(String voto)
+        {
+            
+                List<Estudiante> estudiantes = estudianteRepository.consultarPorCategoria("TODOS");
+                if (estudiantes != null)
+                {
 
+                    return estudianteRepository.ContarVotaron(voto);
+
+                }
+                else
+                {
+                    return 0;
+                }
+
+        }
 
     }
 }
@@ -132,6 +162,8 @@ public class ConsultaEstudianteResponse
         Message = message;
         EstudianteEncontrado = false;
     }
+
+
 
 
 }

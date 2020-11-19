@@ -29,18 +29,20 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.BotonConsultar = new System.Windows.Forms.Button();
+            this.BotonConsultareEstudiante = new System.Windows.Forms.Button();
             this.BotonRegistrarVotos = new System.Windows.Forms.Button();
             this.BotonRegistrarCandidato = new System.Windows.Forms.Button();
             this.menu = new System.Windows.Forms.Label();
             this.PanelMostrar = new System.Windows.Forms.Panel();
+            this.BotonConsultarCandidato = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkSlateBlue;
-            this.panel1.Controls.Add(this.BotonConsultar);
+            this.panel1.Controls.Add(this.BotonConsultarCandidato);
+            this.panel1.Controls.Add(this.BotonConsultareEstudiante);
             this.panel1.Controls.Add(this.BotonRegistrarVotos);
             this.panel1.Controls.Add(this.BotonRegistrarCandidato);
             this.panel1.Controls.Add(this.menu);
@@ -50,15 +52,15 @@
             this.panel1.Size = new System.Drawing.Size(200, 548);
             this.panel1.TabIndex = 0;
             // 
-            // BotonConsultar
+            // BotonConsultareEstudiante
             // 
-            this.BotonConsultar.Location = new System.Drawing.Point(39, 324);
-            this.BotonConsultar.Name = "BotonConsultar";
-            this.BotonConsultar.Size = new System.Drawing.Size(116, 47);
-            this.BotonConsultar.TabIndex = 3;
-            this.BotonConsultar.Text = "Consultar";
-            this.BotonConsultar.UseVisualStyleBackColor = true;
-            this.BotonConsultar.Click += new System.EventHandler(this.BotonConsultar_Click);
+            this.BotonConsultareEstudiante.Location = new System.Drawing.Point(35, 324);
+            this.BotonConsultareEstudiante.Name = "BotonConsultareEstudiante";
+            this.BotonConsultareEstudiante.Size = new System.Drawing.Size(125, 47);
+            this.BotonConsultareEstudiante.TabIndex = 3;
+            this.BotonConsultareEstudiante.Text = "Consultar Estudiante";
+            this.BotonConsultareEstudiante.UseVisualStyleBackColor = true;
+            this.BotonConsultareEstudiante.Click += new System.EventHandler(this.BotonConsultar_Click);
             // 
             // BotonRegistrarVotos
             // 
@@ -99,18 +101,28 @@
             this.PanelMostrar.Size = new System.Drawing.Size(731, 548);
             this.PanelMostrar.TabIndex = 1;
             // 
+            // BotonConsultarCandidato
+            // 
+            this.BotonConsultarCandidato.Location = new System.Drawing.Point(39, 398);
+            this.BotonConsultarCandidato.Name = "BotonConsultarCandidato";
+            this.BotonConsultarCandidato.Size = new System.Drawing.Size(116, 47);
+            this.BotonConsultarCandidato.TabIndex = 4;
+            this.BotonConsultarCandidato.Text = "Consultar Candidatos";
+            this.BotonConsultarCandidato.UseVisualStyleBackColor = true;
+            this.BotonConsultarCandidato.Click += new System.EventHandler(this.BotonConsultarCandidato_Click);
+            // 
             // Principal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Indigo;
             this.ClientSize = new System.Drawing.Size(931, 548);
             this.Controls.Add(this.PanelMostrar);
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(947, 587);
             this.Name = "Principal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "VOTACIONES";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -120,11 +132,12 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button BotonConsultar;
+        private System.Windows.Forms.Button BotonConsultareEstudiante;
         private System.Windows.Forms.Button BotonRegistrarVotos;
         private System.Windows.Forms.Button BotonRegistrarCandidato;
         private System.Windows.Forms.Label menu;
         private System.Windows.Forms.Panel PanelMostrar;
+        private System.Windows.Forms.Button BotonConsultarCandidato;
     }
 }
 

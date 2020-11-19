@@ -29,14 +29,8 @@ namespace Presentacion
         }
         private void LimpiarTexto()
         {
-            foreach (Control x in this.Controls)
-            {
-                if (x is TextBox)
-                {
-                    ((TextBox)x).Text = "";
-                }
-            }
-            
+            TextNombre.Text = "";
+            TextoTarjeton.ResetText();
         }
         private string Guardar()
         {

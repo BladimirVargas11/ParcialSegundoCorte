@@ -13,10 +13,10 @@ using Logica;
 
 namespace Presentacion
 {
-    public partial class FrmConsultar : Form
+    public partial class FrmConsultarEstudiante : Form
     {
         private EstudianteService estudianteService;
-        public FrmConsultar()
+        public FrmConsultarEstudiante()
         {
             InitializeComponent();
             estudianteService = new EstudianteService();
@@ -24,20 +24,23 @@ namespace Presentacion
 
         private void BotonBuscar_Click(object sender, EventArgs e)
         {
+            Consultar();
+
+        }
+        public void Consultar() {
             String categoria = MapearCombo();
             var response = estudianteService.ConsultarPorCategoria(categoria);
             if (response.EstudianteEncontrado)
             {
 
                 TablaEstudiante.DataSource = response.Estudiantes;
-                
+                MostrarDatos();
 
             }
             else
             {
                 MessageBox.Show(response.Message, "Informacion Consulta", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
         }
 
         public string MapearCombo() {
@@ -49,7 +52,12 @@ namespace Presentacion
             {
                 return "NO";
             }
-            else {
+            else if (ComboBuscar.Text.Equals("VOTO EN BLANCO")) 
+            {
+                return "BLANCO";
+            }
+            else
+            {
                 return "TODOS";
             }
         }
@@ -59,5 +67,21 @@ namespace Presentacion
         }
 
 
+
+        public void MostrarDatos()
+        {
+
+
+            int blanco = estudianteService.ContarVoto("BLANCO");
+            int noVotaron = estudianteService.ContarVoto("NO");
+            int votaron = estudianteService.ContarVoto("SI");
+            int total = blanco + noVotaron + votaron;
+            LabelBlanco.Text = blanco.ToString();
+            LabelNoVotaron.Text = noVotaron.ToString();
+            LabelVotaron.Text = votaron.ToString();
+            LabelTotal.Text = total.ToString();
+
+
+        }
     }
 }

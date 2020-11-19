@@ -46,11 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmConsultar.cs">
+    <Compile Include="FrmConsultarCandidato.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmConsultar.Designer.cs">
-      <DependentUpon>FrmConsultar.cs</DependentUpon>
+    <Compile Include="FrmConsultarCandidato.Designer.cs">
+      <DependentUpon>FrmConsultarCandidato.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmConsultarEstudiante.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmConsultarEstudiante.Designer.cs">
+      <DependentUpon>FrmConsultarEstudiante.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmRegistrarCandidato.cs">
       <SubType>Form</SubType>
@@ -72,8 +78,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmConsultar.resx">
-      <DependentUpon>FrmConsultar.cs</DependentUpon>
+    <EmbeddedResource Include="FrmConsultarCandidato.resx">
+      <DependentUpon>FrmConsultarCandidato.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmConsultarEstudiante.resx">
+      <DependentUpon>FrmConsultarEstudiante.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRegistrarCandidato.resx">
       <DependentUpon>FrmRegistrarCandidato.cs</DependentUpon>

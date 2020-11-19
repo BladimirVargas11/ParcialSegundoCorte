@@ -54,10 +54,10 @@ namespace Datos
         {
             Candidato candidato = new Candidato();
             char delimiter = ';';
-            string[] matrizPersona = linea.Split(delimiter);
-            candidato.Tarjeton = matrizPersona[0];
-            candidato.Nombre = matrizPersona[1];
-            candidato.Votos = int.Parse(matrizPersona[2]);
+            string[] matrizCandidato = linea.Split(delimiter);
+            candidato.Tarjeton = matrizCandidato[0];
+            candidato.Nombre = matrizCandidato[1];
+            candidato.Votos = int.Parse(matrizCandidato[2]);
 
             return candidato;
         }
@@ -72,6 +72,7 @@ namespace Datos
             {
                 if (EsEncontrado(item.Tarjeton, candidato.Tarjeton))
                 {
+                    candidato.Votos = candidato.Votos + item.Votos;
                     Guardar(candidato);
                 }
                 else
@@ -80,8 +81,40 @@ namespace Datos
                 }
 
             }
-
-
         }
+        private List<Candidato> ConsultarPorVoto()
+        {
+           return ConsultarTodos().OrderByDescending(s => s.Votos).ToList();
+        }
+        public List<Candidato> consultarPorCategoria(String categoria)
+        {
+            categoria = categoria.ToUpper();
+            if (categoria.Equals("TODOS"))
+            {
+                return ConsultarTodos();
+            }
+            else
+            {
+                return ConsultarPorVoto();
+            }
+        }
+
+        public Candidato ConsultaGanador()
+        {
+            Candidato candidato = new Candidato();
+            List<Candidato> ganador =  ConsultarTodos().OrderByDescending(s => s.Votos).ToList();
+            
+            if (ganador.Count > 0)
+            {
+                return candidato = ganador[0];
+            }
+            else {
+                candidato.Nombre = "Nadie";
+                return candidato;
+            }
+            
+        }
+
+
     }
 }

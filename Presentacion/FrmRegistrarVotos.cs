@@ -64,16 +64,16 @@ namespace Presentacion
             {
 
                 estudiante = estudianteResponse.Estudiante;
-                if (estudiante.Voto.Equals("SI"))
+                if (estudiante.Voto.Equals("SI") || estudiante.Voto.Equals("BLANCO"))
                 {
                     MessageBox.Show("El Estudiante Ya ha votado...");
 
                 }
                 else {
-
+                    TextBuscarId.Enabled = false;
                     BotonVotar.Enabled = true;
                     ComboCandidato.Enabled = true;
-                    TextoNombre.Text = estudiante.Nombre;
+                    TextoNombreEstudiante.Text = estudiante.Nombre;
                     PintarComboTarjetones();
                 }
 
@@ -104,12 +104,78 @@ namespace Presentacion
 
         private void BotonLimpiar_Click(object sender, EventArgs e)
         {
-            
+            LimpiarTexto();
         }
 
         private void BotonVotar_Click(object sender, EventArgs e)
         {
+            if (ComboCandidato.SelectedIndex == 0)
+            {
+                
+                MessageBox.Show(VotarEnBlanco());
+            }
+            else {
 
+                MessageBox.Show(Votar());
+            }
+            
+        }
+
+        private string Votar()
+        {
+            
+            bool voto = serviceEstudiante.Modificar(TextBuscarId.Text,"SI");
+            if (voto) {
+                Candidato candidato = new Candidato(ComboCandidato.Text, TextoCandidato.Text, 1);
+                String messageModificar = serviceCandidato.Modificar(candidato);
+                LimpiarTexto();
+                return messageModificar;
+            }
+            else {
+                return "El estudiante no se ha encontrado, O el archivo ha sido eliminado... intente nuevamente.";
+            }
+        }
+
+        private string VotarEnBlanco()
+        {
+            
+            bool voto = serviceEstudiante.Modificar(TextBuscarId.Text, "BLANCO");
+            if (voto)
+            {
+                LimpiarTexto();
+                return "El estudiante ha votado en blanco correctamente...";
+            }
+            else
+            {
+                return "El estudiante no se ha encontrado, O el archivo ha sido eliminado... intente nuevamente.";
+            }
+        }
+
+        private void ComboCandidato_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int indice = ComboCandidato.SelectedIndex;
+            if (indice == 0) {
+                TextoCandidato.Text = ComboCandidato.Items[indice].ToString();
+            }
+            else {
+                indice = indice - 1;
+                var response = serviceCandidato.ConsultarPorCategoria("TODOS");
+                Candidato candidato = response.Candidatos[indice];
+                TextoCandidato.Text = candidato.Nombre;
+            }
+
+        }
+
+        private void LimpiarTexto()
+        {
+            TextoNombreEstudiante.Text = "";
+            TextBuscarId.Text = "";
+            TextoCandidato.Text = "";
+            ComboCandidato.Items.Clear();
+            ComboCandidato.Text = "BLANCO";
+            BotonVotar.Enabled = false;
+            ComboCandidato.Enabled = false;
+            TextBuscarId.Enabled = true;
         }
     }
 }

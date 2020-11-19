@@ -83,7 +83,75 @@ namespace Logica
             }
         }
 
+        public string Modificar(Candidato candidato)
+        {
+            try
+            {
+                if (candidatoRepository.Buscar(candidato.Tarjeton) != null )
+                {
+                    candidatoRepository.Modificar(candidato);
+                    return ($"Usted Ha votado por: {candidato.Nombre}, con el tarjetón: {candidato.Tarjeton}  ");
+                }
+                else
+                {
+                    return ($"Lo sentimos, no se ha encontrado el candidato con el tarjetón: {candidato.Tarjeton}");
+                }
+            }
+            catch (Exception e)
+            {
 
+                return $"Error de la Aplicacion: {e.Message}";
+            }
+
+        }
+
+        public ConsultaCandidatoResponse ConsultarPorCategoria(string categoria)
+        {
+
+            try
+            {
+                List<Candidato> candidatos = candidatoRepository.consultarPorCategoria(categoria);
+                if (candidatos != null)
+                {
+
+                    return new ConsultaCandidatoResponse(candidatos);
+                }
+                else
+                {
+                    return new ConsultaCandidatoResponse("No existe aún ninguna persona en este grupo");
+                }
+
+            }
+            catch (Exception e)
+            {
+
+                return new ConsultaCandidatoResponse("Error de Aplicacion: " + e.Message);
+            }
+        }
+        
+        public CandidatoResponse ConsultarGanador()
+        {
+
+            try
+            {
+                List<Candidato> candidatos = candidatoRepository.ConsultarTodos();
+                if (candidatos != null)
+                {
+                    Candidato candidato = candidatoRepository.ConsultaGanador();
+                    return new CandidatoResponse(candidato);
+                }
+                else
+                {
+                    return new CandidatoResponse("No existe aún ningun candidato ganador");
+                }
+
+            }
+            catch (Exception e)
+            {
+
+                return new CandidatoResponse("Error de Aplicacion: " + e.Message);
+            }
+        }
 
 
     }
