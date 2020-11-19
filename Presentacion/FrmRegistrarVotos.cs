@@ -22,6 +22,7 @@ namespace Presentacion
             InitializeComponent();
             serviceCandidato = new CandidatoService();
             serviceEstudiante = new EstudianteService();
+            PintarComboTarjetones();
         }
 
         private void BotonBuscar_Click(object sender, EventArgs e)
@@ -64,7 +65,7 @@ namespace Presentacion
             {
 
                 estudiante = estudianteResponse.Estudiante;
-                if (estudiante.Voto.Equals("SI") || estudiante.Voto.Equals("BLANCO"))
+                if (estudiante.Voto.Trim().Equals("SI") || estudiante.Voto.Trim().Equals("BLANCO"))
                 {
                     MessageBox.Show("El Estudiante Ya ha votado...");
 
@@ -74,7 +75,7 @@ namespace Presentacion
                     BotonVotar.Enabled = true;
                     ComboCandidato.Enabled = true;
                     TextoNombreEstudiante.Text = estudiante.Nombre;
-                    PintarComboTarjetones();
+                    
                 }
 
 
@@ -171,7 +172,6 @@ namespace Presentacion
             TextoNombreEstudiante.Text = "";
             TextBuscarId.Text = "";
             TextoCandidato.Text = "";
-            ComboCandidato.Items.Clear();
             ComboCandidato.Text = "BLANCO";
             BotonVotar.Enabled = false;
             ComboCandidato.Enabled = false;

@@ -104,9 +104,19 @@
             // 
             this.TextoTarjeton.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TextoTarjeton.Location = new System.Drawing.Point(325, 189);
+            this.TextoTarjeton.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.TextoTarjeton.Name = "TextoTarjeton";
             this.TextoTarjeton.Size = new System.Drawing.Size(126, 29);
             this.TextoTarjeton.TabIndex = 8;
+            this.TextoTarjeton.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // FrmRegistrarCandidato
             // 

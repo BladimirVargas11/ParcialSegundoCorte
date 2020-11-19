@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.BotonConsultarCandidato = new System.Windows.Forms.Button();
             this.BotonConsultareEstudiante = new System.Windows.Forms.Button();
             this.BotonRegistrarVotos = new System.Windows.Forms.Button();
             this.BotonRegistrarCandidato = new System.Windows.Forms.Button();
             this.menu = new System.Windows.Forms.Label();
             this.PanelMostrar = new System.Windows.Forms.Panel();
-            this.BotonConsultarCandidato = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,9 +53,19 @@
             this.panel1.Size = new System.Drawing.Size(200, 548);
             this.panel1.TabIndex = 0;
             // 
+            // BotonConsultarCandidato
+            // 
+            this.BotonConsultarCandidato.Location = new System.Drawing.Point(39, 396);
+            this.BotonConsultarCandidato.Name = "BotonConsultarCandidato";
+            this.BotonConsultarCandidato.Size = new System.Drawing.Size(116, 47);
+            this.BotonConsultarCandidato.TabIndex = 4;
+            this.BotonConsultarCandidato.Text = "Consultar Candidatos";
+            this.BotonConsultarCandidato.UseVisualStyleBackColor = true;
+            this.BotonConsultarCandidato.Click += new System.EventHandler(this.BotonConsultarCandidato_Click);
+            // 
             // BotonConsultareEstudiante
             // 
-            this.BotonConsultareEstudiante.Location = new System.Drawing.Point(35, 324);
+            this.BotonConsultareEstudiante.Location = new System.Drawing.Point(35, 326);
             this.BotonConsultareEstudiante.Name = "BotonConsultareEstudiante";
             this.BotonConsultareEstudiante.Size = new System.Drawing.Size(125, 47);
             this.BotonConsultareEstudiante.TabIndex = 3;
@@ -64,7 +75,7 @@
             // 
             // BotonRegistrarVotos
             // 
-            this.BotonRegistrarVotos.Location = new System.Drawing.Point(39, 155);
+            this.BotonRegistrarVotos.Location = new System.Drawing.Point(39, 256);
             this.BotonRegistrarVotos.Name = "BotonRegistrarVotos";
             this.BotonRegistrarVotos.Size = new System.Drawing.Size(116, 47);
             this.BotonRegistrarVotos.TabIndex = 2;
@@ -74,7 +85,7 @@
             // 
             // BotonRegistrarCandidato
             // 
-            this.BotonRegistrarCandidato.Location = new System.Drawing.Point(39, 240);
+            this.BotonRegistrarCandidato.Location = new System.Drawing.Point(39, 186);
             this.BotonRegistrarCandidato.Name = "BotonRegistrarCandidato";
             this.BotonRegistrarCandidato.Size = new System.Drawing.Size(116, 47);
             this.BotonRegistrarCandidato.TabIndex = 1;
@@ -101,16 +112,6 @@
             this.PanelMostrar.Size = new System.Drawing.Size(731, 548);
             this.PanelMostrar.TabIndex = 1;
             // 
-            // BotonConsultarCandidato
-            // 
-            this.BotonConsultarCandidato.Location = new System.Drawing.Point(39, 398);
-            this.BotonConsultarCandidato.Name = "BotonConsultarCandidato";
-            this.BotonConsultarCandidato.Size = new System.Drawing.Size(116, 47);
-            this.BotonConsultarCandidato.TabIndex = 4;
-            this.BotonConsultarCandidato.Text = "Consultar Candidatos";
-            this.BotonConsultarCandidato.UseVisualStyleBackColor = true;
-            this.BotonConsultarCandidato.Click += new System.EventHandler(this.BotonConsultarCandidato_Click);
-            // 
             // Principal
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -118,6 +119,7 @@
             this.ClientSize = new System.Drawing.Size(931, 548);
             this.Controls.Add(this.PanelMostrar);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(947, 587);
             this.Name = "Principal";

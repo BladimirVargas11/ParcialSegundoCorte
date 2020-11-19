@@ -106,7 +106,15 @@ namespace Datos
             
             if (ganador.Count > 0)
             {
-                return candidato = ganador[0];
+                if (ganador[0].Votos > ganador[1].Votos)
+                {
+                    return ganador[0];
+
+                }else {
+                    candidato.Nombre = "Empate";
+                    return candidato;
+
+                }
             }
             else {
                 candidato.Nombre = "Nadie";
