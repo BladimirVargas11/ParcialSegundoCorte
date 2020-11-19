@@ -109,7 +109,7 @@ namespace Logica
 
         public int ContarVoto(String voto)
         {
-            
+            try {
                 List<Estudiante> estudiantes = estudianteRepository.consultarPorCategoria("TODOS");
                 if (estudiantes != null)
                 {
@@ -122,6 +122,11 @@ namespace Logica
                     return 0;
                 }
 
+
+            } catch (Exception e) {
+
+                return 0;
+            }
         }
 
     }
