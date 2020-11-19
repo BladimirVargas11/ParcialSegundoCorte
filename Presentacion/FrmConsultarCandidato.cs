@@ -40,6 +40,9 @@ namespace Presentacion
             {
 
                 TablaCandidato.DataSource = response.Candidatos;
+
+                int candidatos = response.Candidatos.Count();
+                LabelCandidato.Text = candidatos.ToString();
                 int blanco = estudianteService.ContarVoto("BLANCO");
                 LabelBlanco.Text = blanco.ToString();
                 var candidatoResponse = candidatoService.ConsultarGanador();
@@ -47,11 +50,6 @@ namespace Presentacion
                 {
                     LabelGanador.Text = candidatoResponse.Candidato.Nombre;
                 }
-
-                
-                
-
-
             }
             else
             {

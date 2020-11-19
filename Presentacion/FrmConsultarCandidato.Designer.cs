@@ -36,6 +36,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.LabelGanador = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.LabelCandidato = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.TablaCandidato)).BeginInit();
             this.SuspendLayout();
             // 
@@ -129,12 +131,36 @@
             this.label4.TabIndex = 32;
             this.label4.Text = "Ganador:";
             // 
+            // LabelCandidato
+            // 
+            this.LabelCandidato.AutoSize = true;
+            this.LabelCandidato.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelCandidato.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.LabelCandidato.Location = new System.Drawing.Point(632, 508);
+            this.LabelCandidato.Name = "LabelCandidato";
+            this.LabelCandidato.Size = new System.Drawing.Size(19, 21);
+            this.LabelCandidato.TabIndex = 35;
+            this.LabelCandidato.Text = "0";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label5.Location = new System.Drawing.Point(491, 508);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(135, 21);
+            this.label5.TabIndex = 34;
+            this.label5.Text = "Total Candidatos:";
+            // 
             // FrmConsultarCandidato
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Indigo;
             this.ClientSize = new System.Drawing.Size(731, 548);
+            this.Controls.Add(this.LabelCandidato);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.LabelGanador);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.LabelBlanco);
@@ -162,5 +188,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label LabelGanador;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label LabelCandidato;
+        private System.Windows.Forms.Label label5;
     }
 }

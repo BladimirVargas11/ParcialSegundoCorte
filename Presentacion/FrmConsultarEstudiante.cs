@@ -75,11 +75,13 @@ namespace Presentacion
             int blanco = estudianteService.ContarVoto("BLANCO");
             int noVotaron = estudianteService.ContarVoto("NO");
             int votaron = estudianteService.ContarVoto("SI");
-            int total = blanco + noVotaron + votaron;
+            int totalVotaron = blanco + votaron;
+            int totalEstudiantes = blanco + noVotaron + votaron;
             LabelBlanco.Text = blanco.ToString();
             LabelNoVotaron.Text = noVotaron.ToString();
             LabelVotaron.Text = votaron.ToString();
-            LabelTotal.Text = total.ToString();
+            LabelTotal.Text = totalVotaron.ToString();
+            LabelTotalEstudiantes.Text = totalEstudiantes.ToString();
 
 
         }

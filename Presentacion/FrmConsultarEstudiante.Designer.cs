@@ -40,6 +40,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.LabelTotalEstudiantes = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.TablaEstudiante)).BeginInit();
             this.SuspendLayout();
             // 
@@ -179,12 +181,36 @@
             this.label2.TabIndex = 23;
             this.label2.Text = "Votaron:";
             // 
+            // LabelTotalEstudiantes
+            // 
+            this.LabelTotalEstudiantes.AutoSize = true;
+            this.LabelTotalEstudiantes.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelTotalEstudiantes.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.LabelTotalEstudiantes.Location = new System.Drawing.Point(666, 518);
+            this.LabelTotalEstudiantes.Name = "LabelTotalEstudiantes";
+            this.LabelTotalEstudiantes.Size = new System.Drawing.Size(19, 21);
+            this.LabelTotalEstudiantes.TabIndex = 32;
+            this.LabelTotalEstudiantes.Text = "0";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label7.Location = new System.Drawing.Point(525, 518);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(136, 21);
+            this.label7.TabIndex = 31;
+            this.label7.Text = "Total Estudiantes:";
+            // 
             // FrmConsultarEstudiante
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Indigo;
             this.ClientSize = new System.Drawing.Size(731, 548);
+            this.Controls.Add(this.LabelTotalEstudiantes);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.LabelTotal);
             this.Controls.Add(this.LabelBlanco);
             this.Controls.Add(this.LabelNoVotaron);
@@ -220,5 +246,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label LabelTotalEstudiantes;
+        private System.Windows.Forms.Label label7;
     }
 }
